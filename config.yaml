@@ -1,0 +1,27 @@
+# 文献搜索系统配置
+deepseek:
+  model: deepseek-flash
+  secret_path: ../project/secret.txt
+  timeout_seconds: 180
+  transient_retries: 2
+  max_tokens: 16384
+  temperature: 0.7
+  thinking: enabled
+
+search:
+  backends: [arxiv]
+  max_results_per_query: 10
+  politeness_seconds: 3.0
+  request_timeout_seconds: 30
+
+survey:
+  # depth: 1 = 浅检索（~5 queries, ~50 papers, ~3 LLM calls）
+  # depth: 2 = 中等（~8 queries, ~80 papers, ~5 LLM calls）
+  # depth: 3 = 深入（~12 queries, ~120 papers, ~8 LLM calls）
+  default_depth: 2
+  max_papers: 150
+  report_language: zh
+
+runtime:
+  seed: 2026
+  max_llm_calls: 30
